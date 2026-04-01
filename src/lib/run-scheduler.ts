@@ -1,4 +1,4 @@
-import {processSorting,} from './scheduler';
+import {processSorting, processSortingMultiMenu,} from './scheduler';
 import { Recipe, Step } from "./types";
 import rawData from "../data/recipes.json";
 const recipesData = rawData as Recipe[];
@@ -8,18 +8,19 @@ const run = () => {
 
   try {
     // ロジックの呼び出し
-    const timeline = processSorting(shuffleRecipes(recipesData));
+    const timeline = processSortingMultiMenu(shuffleRecipes(recipesData));
 
     if (timeline.length === 0) {
       console.warn("警告: 結果が空です。入力データかロジックを確認してください。");
       return;
     }
 
-    console.log(`成功！ 全 ${timeline.length} 個のメニューをソートしました。\n`);
-    for (const sortedStep of timeline) {
-      sortedStep.forEach(step => {
-        console.log(step.task);
-      })
+    console.log(`成功！ 全 ${timeline.length} 個の工程をソートしました。\n`);
+    for (const step of timeline) {
+      console.log(step.label);
+      //sortedStep.forEach(step => {
+      //  console.log(step.task);
+      //})
     }
   } catch (error) {
     console.error("エラーが発生しました:");

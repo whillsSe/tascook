@@ -51,42 +51,42 @@
     "steps":[
       {
         "id":"A1",
-        "task":"野菜を切る",
-        "duration":300,
+        "label":"野菜を切る",
+        "estimatedDuration":300,
         "dependsOn":[]
       },
       {
         "id":"A2",
-        "task":"肉を炒める",
-        "duration":150,
+        "label":"肉を炒める",
+        "estimatedDuration":150,
         "dependsOn":["A1"]
       },
       {
         "id":"A3",
-        "task":"野菜を炒める",
-        "duration":180,
+        "label":"野菜を炒める",
+        "estimatedDuration":180,
         "dependsOn":["A2"]
       },
       {
         "id":"A4",
-        "task":"煮汁の材料を入れ沸騰させる",
-        "duration":200,
+        "label":"煮汁の材料を入れ沸騰させる",
+        "estimatedDuration":200,
         "dependsOn":["A3"]
       },{
         "id":"A5",
-        "task":"灰汁を取る",
-        "duration":120,
+        "label":"灰汁を取る",
+        "estimatedDuration":120,
         "dependsOn":["A4"]
       },{
         "id":"A6",
-        "task":"落とし蓋をし20分煮る",
-        "duration":1200,
+        "label":"落とし蓋をし20分煮る",
+        "estimatedDuration":1200,
         "dependsOn":["A5"],
         "isPassive":true
       },{
         "id":"A7",
-        "task":"火を止め、10分蒸らす",
-        "duration":600,
+        "label":"火を止め、10分蒸らす",
+        "estimatedDuration":600,
         "dependsOn":["A6"],
         "isPassive":true
       }
@@ -124,42 +124,43 @@
     "steps":[
       {
         "id":"B1",
-        "task":"ゴマや出汁をすりこぎで混ぜとく",
-        "duration":180,
+        "label":"ゴマや出汁をすりこぎで混ぜとく",
+        "estimatedDuration":180,
         "dependsOn":[],
         "ingredients":[
           "すりごま","みりん","しょうゆ","砂糖","和風顆粒だし"
         ]
       },{
         "id":"B2",
-        "task":"塩を入れた水を沸騰させる",
-        "duration":180,
-        "dependsOn":[]
+        "label":"塩を入れた水を沸騰させる",
+        "estimatedDuration":180,
+        "dependsOn":[],
+        "isPassive":true
       },{
         "id":"B3",
-        "task":"ほうれん草をさっと茹でる",
-        "duration":60,
+        "label":"ほうれん草をさっと茹でる",
+        "estimatedDuration":60,
         "dependsOn":["B2"],
         "ingredients":["ほうれん草"]
       },{
         "id":"B4",
-        "task":"冷水をくぐらせる",
-        "duration":60,
+        "label":"冷水をくぐらせる",
+        "estimatedDuration":60,
         "dependsOn":["B3"]
       },{
         "id":"B5",
-        "task":"よく絞る",
-        "duration":60,
+        "label":"よく絞る",
+        "estimatedDuration":60,
         "dependsOn":["B4"]
       },{
         "id":"B6",
-        "task":"食べやすい大きさに切る",
-        "duration":60,
+        "label":"食べやすい大きさに切る",
+        "estimatedDuration":60,
         "dependsOn":["B5"]
       },{
         "id":"B7",
-        "task":"ほうれん草とペーストを和える",
-        "duration":30,
+        "label":"ほうれん草とペーストを和える",
+        "estimatedDuration":30,
         "dependsOn":["B1","B6"],
         "isFreshnessImportant": true
       }

@@ -2,17 +2,21 @@ export interface Recipe{
   id: string;
   name: string;
   ingredients: object[];
-  steps: Step[];
+  steps: RawStep[];
 }
-export interface Step{
+export interface RawStep{
   id: string;
   label: string;
   estimatedDuration?: number;
-  //type?: 'manual' | 'passive'
+  type?: 'manual' | 'passive'
   dependsOn: string[];
   isPassive?: boolean;
   ingredients?: string[];
   isFreshnessImportant?: boolean;
+}
+export interface Step extends RawStep{
+  type: 'manual' | 'passive'
+  estimatedDuration: number;
 }
 export interface ingredient{
   id: string;
