@@ -4,47 +4,58 @@
     "name":"肉じゃが",
     "ingredients":[
       {
-        "item":"じゃがいも",
+        "id":"id01",
+        "name":"じゃがいも",
         "amount":"6個"
       },
       {
-        "item":"牛コマ",
+        "id":"id02",
+        "name":"牛コマ",
         "amount":"400g"
       },
       {
-        "item":"人参",
+        "id":"id03",
+        "name":"人参",
         "amount":"1個"
       },
       {
-        "item":"玉ねぎ",
+        "id":"id04",
+        "name":"玉ねぎ",
         "amount":"1個"
       },
       {
-        "item":"白滝",
+        "id":"id05",
+        "name":"白滝",
         "amount":"1袋"
       },
       {
-        "item":"水",
+        "id":"id06",
+        "name":"水",
         "amount":"400g"
       },
       {
-        "item":"醤油",
+        "id":"id07",
+        "name":"醤油",
         "amount":"大4"
       },
       {
-        "item":"酒",
+        "id":"id08",
+        "name":"酒",
         "amount":"大4"
       },
       {
-        "item":"砂糖",
+        "id":"id09",
+        "name":"砂糖",
         "amount":"大4"
       },
       {
-        "item":"みりん",
+        "id":"id10",
+        "name":"みりん",
         "amount":"大4"
       },
       {
-        "item":"ほんだし",
+        "id":"id11",
+        "name":"ほんだし",
         "amount":"大1"
       }
     ],
@@ -71,7 +82,8 @@
         "id":"A4",
         "label":"煮汁の材料を入れ沸騰させる",
         "estimatedDuration":200,
-        "dependsOn":["A3"]
+        "dependsOn":["A3"],
+        "type":2
       },{
         "id":"A5",
         "label":"灰汁を取る",
@@ -82,13 +94,15 @@
         "label":"落とし蓋をし20分煮る",
         "estimatedDuration":1200,
         "dependsOn":["A5"],
-        "isPassive":true
+        "timerTime": 1200,
+        "type":3
       },{
         "id":"A7",
         "label":"火を止め、10分蒸らす",
         "estimatedDuration":600,
+        "timerTime":600,
         "dependsOn":["A6"],
-        "isPassive":true
+        "type":3
       }
     ]
   },
@@ -97,27 +111,33 @@
     "name":"ほうれん草の胡麻和え",
     "ingredients":[
       {
-        "item":"ほうれん草",
+        "id":"id21",
+        "name":"ほうれん草",
         "amount":"ひと束"
       },
       {
-        "item":"すりごま",
+        "id":"id22",
+        "name":"すりごま",
         "amount":"大5"
       },
       {
-        "item":"みりん",
+        "id":"id23",
+        "name":"みりん",
         "amount":"大1"
       },
       {
-        "item":"しょうゆ",
+        "id":"id24",
+        "name":"しょうゆ",
         "amount":"小2"
       },
       {
-        "item":"砂糖",
+        "id":"id25",
+        "name":"砂糖",
         "amount":"小1"
       },
       {
-        "item":"和風顆粒だし",
+        "id":"id26",
+        "name":"和風顆粒だし",
         "amount":"小1/2"
       }
     ],
@@ -135,7 +155,7 @@
         "label":"塩を入れた水を沸騰させる",
         "estimatedDuration":180,
         "dependsOn":[],
-        "isPassive":true
+        "type":2
       },{
         "id":"B3",
         "label":"ほうれん草をさっと茹でる",
@@ -146,17 +166,20 @@
         "id":"B4",
         "label":"冷水をくぐらせる",
         "estimatedDuration":60,
-        "dependsOn":["B3"]
+        "dependsOn":["B3"],
+        "chainParentId":"B3"
       },{
         "id":"B5",
         "label":"よく絞る",
         "estimatedDuration":60,
-        "dependsOn":["B4"]
+        "dependsOn":["B4"],
+        "chainParentId":"B4"
       },{
         "id":"B6",
         "label":"食べやすい大きさに切る",
         "estimatedDuration":60,
-        "dependsOn":["B5"]
+        "dependsOn":["B5"],
+        "chainParentId":"B5"
       },{
         "id":"B7",
         "label":"ほうれん草とペーストを和える",
