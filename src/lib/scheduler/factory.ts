@@ -5,7 +5,7 @@ import {Step, CookingBlock} from './types'
    */
 export const createBlocks = (steps: Step[]): CookingBlock[] => {
   // 親のidから子のStepを引けるMapを作成
-  const nextStepMap = new Map<string, Step>(); // [親ID, 子ID]
+  const nextStepMap = new Map<string, Step>(); // [親ID, 子Step]
   steps.forEach(s => {
     if (s.chainParentId) nextStepMap.set(s.chainParentId, s);
   });

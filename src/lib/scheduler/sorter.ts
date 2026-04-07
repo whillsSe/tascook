@@ -18,17 +18,8 @@ export const sortBlocks = (blocks: CookingBlock[]): CookingBlock[] => {
       isSortable = true;
     }
     if (!isSortable) throw new Error("追加が行われないループに突入しています。");
-    //sortableQueueを参照し、その中の優先順位をつける
-    //それぞれのstepの重みづけをする
-      //isPassiveなら、+100(最優先)
-      //isPassive同士なら、durationが長いものを優先
-        //それでも優先度が変わらない場合、被参照順位が高い？(手前のstepである)ものを優先する
-    //その中で、重さが一番重いものを優先してsortedStepに入れる
-    //sortableBlocksQueue.sort((a,b) => {
-    //return calculatePriority(b) - calculatePriority(a);
-    //})
-    //すると、依存してた者が評価対象になるはずなので、再度forに戻る必要がある
-    //現時点で優先順位が一番高いものをsortedBlockIdSetに入れる=辺を削除
+    //今回は全Blockを横並びにして計算しているが、各料理の最善手を表示する、とかを構想する時にこれで良いのか問題はある。
+    //今の実装は、dependsOn単位で並べてるだけな事にご注意。
     const priority_block: CookingBlock = sortableBlocksQueue.shift()!;
     sortedBlocks.push(priority_block);
     sortedBlockIdSet.add(priority_block.id);
