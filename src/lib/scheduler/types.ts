@@ -44,7 +44,7 @@ export interface Step extends RawStep{
   estimatedDuration: number;
   timerTime: number | null;
   hasTimer: boolean;
-  status: TaskStatus;
+  status: CookingStatus;
   //実績情報。調理の手順で各ユーザーの実績値の平均を取る。
   stats?: {
     averageDuration: number;
@@ -58,14 +58,20 @@ export enum StepType{
   Watch = 2,  //手を離せるけど状況が変化するもの。沸騰するまで、とか、色がつくまで煮込む。
   Passive = 3,  //手が離せる操作。煮込む・冷ます・etc...開始/完了がある
 }
-export type TaskStatus = 'waiting'|'ready'|'running'|'completed'
+
+export type CookingStatus = 
+  | 'WAITING'    // 依存関係が未解決（待機中）
+  | 'READY'      // 依存関係が解決され、着手可能
+  | 'COOKING'    // 現在進行中
+  | 'COMPLETED';    // 完了
+
 export interface CookingBlock{
   //調理順としてソート・評価する際の型
 
   //ブロックid。recipeId_stepId
   id: string;
   recipeId: string;
-  //ワンブロック内の手順。
+  //1ブロック内の手順。
   steps: Step[];  //この中の並び順はisChainを反映。
   dependsOnBlockIds: string[];  //Block単位での依存関係。
   //合計時間

@@ -39,6 +39,7 @@ export const createBlocks = (steps: Step[]): CookingBlock[] => {
         steps: currentBlockSteps,
         dependsOnBlockIds: [], //あとで
         estimatedDuration: 0, //あとで
+        status: 'WAITING' //TODO:標準の状態の評価をいつやるよ
       } as CookingBlock);
     }
   });
